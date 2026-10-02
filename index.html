@@ -1,183 +1,42 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Energy Consumption | Home</title>
-    <link rel="stylesheet" href="style.css">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Energy Data Visualizations</title>
+	<link rel="stylesheet" href="style.css">
+	<script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js" defer></script>
+	<script src="load-data.js" defer></script>
+	<script src="charts/scatter.js" defer></script>
+	<script src="charts/donut.js" defer></script>
+	<script src="charts/bar.js" defer></script>
+	<script src="charts/line.js" defer></script>
 </head>
 <body>
+	<main class="dashboard">
+		<header class="dashboard-header">
+			<p class="eyebrow">Energy data</p>
+			<h1>Television energy use</h1>
+		</header>
 
-    <!-- Header -->
-    <header>
-        <nav class="navbar">
-            <a href="#" class="logo-link" id="logoLink" aria-label="Return to home">
-                <img src="images/PowerIcon.png" alt="Energy Consumption logo" class="logo">
-            </a>
-
-            <ul class="nav-menu">
-                <li><a href="#" class="nav-link active" data-page="home">Home</a></li>
-                <li><a href="#" class="nav-link" data-page="tvs">Televisions</a></li>
-                <li><a href="#" class="nav-link" data-page="about">About Us</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <main>
-        <!-- Home Page -->
-        <section id="home" class="page active">
-            <h1>Television Energy Consumption in Australia</h1>
-            <div id="content"></div>
-
-            <div class="responsive-svg-container"></div>
-
-            <!-- D3 library -->
-            <script src="https://d3js.org/d3.v7.min.js"></script>
-            
-            <!-- NEW: T04-5 loader -->
-            <script src="t04-4-load.js"></script>
-            <script src="t04-5-bars.js"></script>
-
-            <!-- Old js files (disable while doing T04-4) -->
-            <!-- <script src="energy-d3.js"></script> -->
-            <!-- <script src="t04-3-bars.js"></script> -->
-
-
-        </section>
-
-        <!-- Televisions Page -->
-        <section id="tvs" class="page">
-            <h1>Televisions</h1>
-            <p class="intro">
-                An analysis of televisions currently available on the Australian
-                market. The charts below answer common questions about screen
-                technology, size, brand availability, and energy consumption.
-            </p>
-
-            <!-- Q1 -->
-            <article class="question-block">
-                <h2>Q1. What type of TV screen technologies are currently available in Australia and which are the most frequent?</h2>
-                <figure>
-                    <img src="images/Q1_1.png" alt="Pie chart showing share of LCD, LCD (LED), and OLED television models">
-                    <figcaption>Fig 1a - Frequency of each technology type. (Pie Chart)</figcaption>
-                </figure>
-                <figure>
-                    <img src="images/Q1_2.png" alt="Bar chart showing occurrence count of each TV screen technology">
-                    <figcaption>Fig 1b - Frequency of each technology type. (Bar Chart)</figcaption>
-                </figure>
-                <p class="analysis">
-                    Three technologies are available: LCD (LED), LCD, and OLED.
-                    LCD (LED) is the most frequent with 3794 models, followed by LCD (484) and OLED (292).
-                </p>
-            </article>
-
-            <!-- Q2 -->
-            <article class="question-block">
-                <h2>Q2. What screen sizes are available and which are most frequent?</h2>
-                <figure>
-                    <img src="images/Q2.png" alt="Chart showing frequency of TV screen sizes">
-                    <figcaption>Fig 2 - Distribution of TV screen sizes (inches).</figcaption>
-                </figure>
-                <p class="analysis">
-                    The three most frequent screen sizes are 65" (773 models),
-                    55" (762 models), and 75" (629 models).
-                </p>
-            </article>
-
-            <!-- Q3 -->
-            <article class="question-block">
-                <h2>Q3. Which brands have the largest number of models?</h2>
-                <figure>
-                    <img src="images/Q3.png" alt="Chart showing number of TV models per brand">
-                    <figcaption>Fig 3 - Number of models per brand.</figcaption>
-                </figure>
-                <p class="analysis">
-                    Kogan has the largest number of models (807), followed by LG (723)
-                    and Samsung Electronics (699).
-                </p>
-            </article>
-
-            <!-- Q4 -->
-            <article class="question-block">
-                <h2>Q4. Which type of screen technology consumes the least amount of power?</h2>
-                <figure>
-                    <img src="images/Q4.png" alt="Chart comparing average power consumption by screen technology">
-                    <figcaption>Fig 4 - Average power consumption by technology.</figcaption>
-                </figure>
-                <p class="analysis">
-                    LCD consumes the least power on average (71.35 W), followed by
-                    LCD (LED) (106 W) and OLED (112.7 W).
-                </p>
-            </article>
-
-            <!-- Q5 -->
-            <article class="question-block">
-                <h2>Q5. What is the relationship between screen size and power use?</h2>
-                <figure>
-                    <img src="images/Q5.png" alt="Chart showing relationship between screen size and average power consumption">
-                    <figcaption>Fig 5 - Screen size vs. power consumption.</figcaption>
-                </figure>
-                <p class="analysis">
-                    There is a positive relationship between screen size and power use:
-                    as screen size increases, the average mode power consumption also
-                    increases.
-                </p>
-            </article>
-
-            <!-- Q6 -->
-            <article class="question-block">
-                <h2>Q6. What is the relationship between star rating and screen size?</h2>
-                <figure>
-                    <img src="images/Q6.png" alt="Chart showing relationship between energy star rating and screen size">
-                    <figcaption>Fig 6 - Star rating vs. screen size.</figcaption>
-                </figure>
-                <p class="analysis">
-                    There is no clear relationship between star rating and screen size in
-                    this dataset.
-                </p>
-            </article>
-
-            <!-- Q7 -->
-            <article class="question-block">
-                <h2>Q7. Are there differences in power consumption between brands?</h2>
-                <figure>
-                    <img src="images/Q7_1.png" alt="Chart comparing power efficiency across brands">
-                    <figcaption>Fig 7a - Power efficiency by brand. (Box Plot)</figcaption>
-                </figure>
-                <figure>
-                    <img src="images/Q7_2.png" alt="Chart comparing average power consumption across brands">
-                    <figcaption>Fig 7b - Average power consumption by brand. (Bar Chart)</figcaption>
-                </figure>
-            </article>
-   
-        </section>
-
-        <!-- About Us Page -->
-        <section id="about" class="page">
-            <h1>About Us</h1>
-            <p class="intro">
-                This website presents a data-driven exploration of television energy
-                consumption in the Australian market.
-            </p>
-
-            <h2>About This Project</h2>
-            <p>
-                This site was created as part of COS30045 Data Visualisation Tutorial Exercises at Swinburne University of Technology Sarawak Campus.
-            </p>
-
-        </section>
-
-    </main>
-
-    <!-- Footer -->
-    <footer>
-        <p>
-            &copy; <span class="year"></span> Jun Wen NG.
-            GenAI acknowledgement: Portions of this site were generated with the
-            assistance of GitHub Copilot.
-        </p>
-    </footer>
-
-    <script src="script.js"></script>
+		<section class="chart-grid" aria-label="Energy charts">
+			<article class="chart-panel">
+				<h2>Scatter plot</h2>
+				<div id="scatter-plot" class="chart-container"></div>
+			</article>
+			<article class="chart-panel">
+				<h2>Donut chart</h2>
+				<div id="donut-chart" class="chart-container"></div>
+			</article>
+			<article class="chart-panel">
+				<h2>Bar chart</h2>
+				<div id="bar-chart" class="chart-container"></div>
+			</article>
+			<article class="chart-panel">
+				<h2>Line chart</h2>
+				<div id="line-chart" class="chart-container"></div>
+			</article>
+		</section>
+	</main>
 </body>
 </html>

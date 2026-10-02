@@ -192,3 +192,246 @@ footer a { color: var(--accent); }
     width: 100%; /* fill parent width */
     max-width: 1200px; /* cap max width */
     }
+
+/* Chart dashboard */
+.dashboard {
+    max-width: 1200px;
+    padding-top: 1rem;
+    padding-bottom: 2.5rem;
+}
+
+.dashboard-header {
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid #e0d4b3;
+    padding-bottom: 1rem;
+}
+
+.dashboard-header h1 {
+    margin-bottom: 0;
+}
+
+.eyebrow {
+    color: #8c6b3c;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.chart-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+}
+
+.chart-panel {
+    min-width: 0;
+    padding: 1rem;
+    border: 1px solid #e0d4b3;
+    border-radius: 6px;
+    background: #fffdf7;
+    box-shadow: 0 3px 12px rgba(72, 53, 25, 0.07);
+}
+
+.chart-panel h2 {
+    margin: 0 0 0.75rem;
+    color: var(--primary);
+    font-size: 1rem;
+}
+
+.chart-container {
+    min-height: 280px;
+    border: 1px solid #eee6d4;
+    border-radius: 4px;
+    background-color: #fff;
+}
+
+#scatter-plot svg {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.chart-title {
+    fill: var(--text);
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.scatter-grid line {
+    stroke: #eee6d4;
+}
+
+.scatter-grid path {
+    display: none;
+}
+
+.scatter-axis path,
+.scatter-axis line {
+    stroke: #8c8170;
+}
+
+.scatter-axis text,
+.axis-label {
+    fill: #51483b;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11px;
+}
+
+.axis-label {
+    font-size: 12px;
+}
+
+#scatter-plot circle {
+    fill: #d98324;
+    fill-opacity: 0.68;
+    stroke: #fffdf7;
+    stroke-width: 0.7px;
+}
+
+#donut-chart svg {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.donut-title {
+    fill: var(--text);
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.donut-center-label {
+    fill: #51483b;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11px;
+}
+
+.donut-center-unit {
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.donut-legend-label {
+    fill: var(--text);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.donut-legend-value {
+    fill: #665c4e;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 10px;
+}
+
+#bar-chart svg {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.bar-title {
+    fill: var(--text);
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.bar-grid line {
+    stroke: #eee6d4;
+}
+
+.bar-grid path {
+    display: none;
+}
+
+.bar-axis path,
+.bar-axis line {
+    stroke: #8c8170;
+}
+
+.bar-axis text,
+.bar-axis-label,
+.bar-value {
+    fill: #51483b;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11px;
+}
+
+.bar-axis-label {
+    font-size: 12px;
+}
+
+.bar-value {
+    font-size: 10px;
+    font-weight: 700;
+}
+
+.energy-bar {
+    rx: 2px;
+}
+
+#line-chart svg {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.spot-title {
+    fill: var(--text);
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.spot-grid line {
+    stroke: #eee6d4;
+}
+
+.spot-grid path {
+    display: none;
+}
+
+.spot-axis path,
+.spot-axis line {
+    stroke: #8c8170;
+}
+
+.spot-axis text,
+.spot-axis-label {
+    fill: #51483b;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 10px;
+}
+
+.spot-axis-label {
+    font-size: 12px;
+}
+
+.spot-line {
+    fill: none;
+    stroke: #4d796b;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-width: 2.5px;
+}
+
+.spot-point {
+    fill: #cb6850;
+    stroke: #fffdf7;
+    stroke-width: 1.5px;
+}
+
+@media (max-width: 680px) {
+    .dashboard {
+        margin-top: 1rem;
+        padding-right: 1rem;
+        padding-left: 1rem;
+    }
+
+    .chart-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .chart-container {
+        min-height: 240px;
+    }
+}
